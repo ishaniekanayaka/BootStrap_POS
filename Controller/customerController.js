@@ -1,44 +1,24 @@
-let Dashboard = document.getElementById("Dashboard");
-let Customer = document.getElementById("Customer");
-let Item = document.getElementById("Item");
-let Order = document.getElementById("Order");
-let Order_history = document.getElementById("Order_history");
-
-let Dashboard_section = document.getElementById("Dashboard_section");
-let customer_section = document.getElementById("customer-section");
-let item_section = document.getElementById("item-section");
-
-customer_section.style.display = "none";
-item_section.style.display = "none";
-
-Dashboard.addEventListener('click', function () {
-    Dashboard_section.style.display = "block"
-    customer_section.style.display = "none";
-    item_section.style.display = "none";
-
-});
-
-Customer.addEventListener('click', function () {
-    Dashboard_section.style.display = "none"
-    customer_section.style.display = "block";
-    item_section.style.display = "none";
-
-});
-
-Item.addEventListener('click', function () {
-    Dashboard_section.style.display = "none"
-    customer_section.style.display = "none";
-    item_section.style.display = "block";
-
-});
-
-
+/*import {CustomerModel} from"./models/customer.js";*/
+import CustomerModel from "../models/customer.js";
 ///////////////////////////////////////////////////////
     /*Customer  & Table update*/
 //////////////////////////////////////////////////////
+/*import {CustomerModel} from"./models/customer.js";*/
 
 //customer array
-let CustomerDB = [];
+/*let CustomerDB = [];*/
+import {CustomerDB} from "../db/database.js";
+
+
+const validateMobile = (mobile) => {
+    const sriLankanMobileRegex = /^(?:\+94|0)?7[0-9]{8}$/;
+    return sriLankanMobileRegex.test(mobile);
+}
+
+const validateEmail = (email) => {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+}
 
 //clear fields
 const clearForm = ()=>{
@@ -54,14 +34,14 @@ const clearForm = ()=>{
 const customerTable = () => {
     $("#customerTableBody").empty();
     CustomerDB.map((item, index) => {
-        console.log(item);
+        /*console.log(item);*/
         let Data = `<tr>
             <td>${item.id}</td>
-            <td>${item.FirstName}</td>
-            <td>${item.LastName}</td>
-            <td>${item.CusEmail}</td>
-            <td>${item.CustomerAddress}</td>
-            <td>${item.PhoneNumber}</td>
+            <td>${item.firstName}</td>
+            <td>${item.lastName}</td>
+            <td>${item.phoneNumber}</td>
+            <td>${item.cusEmail}</td>
+            <td>${item.customerAddress}</td>
             </tr>`
         $("#customerTableBody").append(Data);
     });
@@ -69,27 +49,62 @@ const customerTable = () => {
 
 //----------------save customer----------------------//
 $("#customer_add_button").on("click", function() {
-    let First_Name = $("#firstName").val();
+    let First_Name = $("#firstName").val(); //empty wwenn ba
     let Last_Name = $("#lastName").val();
-    let Email = $("#email").val();
-    let Phone_Number = $("#mobile").val();
+    let Email = $("#email").val(); //meketh emty wenn ba format ekk thiyen oni
+    let Phone_Number = $("#mobile").val(); //format eka hriytm check wenn oni
     let Cus_Address = $("#address").val();
 
-    console.log()
+    if (First_Name.length === 0){
+        alert("invalid First Name");
+    }else if(Last_Name. length === 0) {
+        alert("invalid Last Name");
+    }else if (!validateEmail(Email)) {
+        Swal.fire({
+            title: "Invalid email?",
+            text: "That thing is still around?",
+            icon: "question"
+        });
+    }else if (!validateMobile(Phone_Number)){
+        Swal.fire({
+            title: "Invalid Mobile Number?",
+            text: "That thing is still around?",
+            icon: "question"
+        });
+    }else if(Cus_Address. length === 0){
+        alert("invalid Customer Address");
+    }else {
+        /*let customerData = {
+            id : CustomerDB.length + 1,
+            FirstName : First_Name,
+            LastName : Last_Name,
+            CusEmail : Email,
+            PhoneNumber : Phone_Number,
+            CustomerAddress : Cus_Address
+        }*/
 
-    let customerData = {
-        id : CustomerDB.length + 1,
-        FirstName : First_Name,
-        LastName : Last_Name,
-        CusEmail : Email,
-        PhoneNumber : Phone_Number,
-        CustomerAddress : Cus_Address
+        let customerData = new CustomerModel(
+            CustomerDB.length + 1,
+            First_Name,
+            Last_Name,
+            Email,
+            Phone_Number,
+            Cus_Address
+        );
+
+
+        CustomerDB.push(customerData);
+
+        customerTable();
+        clearForm();
+        Swal.fire({
+            title: "Customer Saved!",
+            text: "You clicked the button!",
+            icon: "success"
+        });
     }
-    CustomerDB.push(customerData);
-
-    customerTable();
-    clearForm();
 });
+
 
 //----------------get the customer----------------------//
 let selectedCustomerIndex;
@@ -97,20 +112,40 @@ let selectedCustomerIndex;
 $("#customerTableBody").on("click", "tr", function (){
     selectedCustomerIndex = $(this).index();
     let customerData = CustomerDB[selectedCustomerIndex]; //get the customer data
-    $('#firstName').val(customerData.FirstName);
-    $('#lastName').val(customerData.LastName);
-    $('#email').val(customerData.CusEmail);
-    $('#mobile').val(customerData.PhoneNumber);
-    $('#address').val(customerData.CustomerAddress);
+    $('#firstName').val(customerData.firstName);
+    $('#lastName').val(customerData.lastName);
+    $('#email').val(customerData.cusEmail);
+    $('#mobile').val(customerData.phoneNumber);
+    $('#address').val(customerData.customerAddress);
+
+    console.log(customerData);
 });
+
 
 //----------------delete customer----------------------//
 $("#customer_delete_button").on("click", function() {
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success"
+            });
+        }
+    });
     if(selectedCustomerIndex!== undefined){
         CustomerDB.splice(selectedCustomerIndex, 1);
         customerTable();
         clearForm();
-        selectedCustomerIndex = undefined;
+       /* selectedCustomerIndex = undefined;*/
     }else {
         alert("Please select a customer to delete");
     }
@@ -140,6 +175,21 @@ $("#customer_update_button").on("click", function() {
             customerTable(); // Refresh the table after updating the customer
             clearForm(); // Clear the form fields
             selectedCustomerIndex = undefined; // Reset the selected index
+
+            Swal.fire({
+                title: "Do you want to save the changes?",
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: "Update",
+                denyButtonText: `Don't Update`
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    Swal.fire("Saved!", "", "success");
+                } else if (result.isDenied) {
+                    Swal.fire("Changes are not saved", "", "info");
+                }
+            });
         } else {
             alert("Please fill all fields before updating.");
         }
@@ -149,13 +199,15 @@ $("#customer_update_button").on("click", function() {
 });
 
 
+/*
 
 ///////////////////////////////////////////////////////
-        /*Item  & Table update*/
+        /!*Item  & Table update*!/
 //////////////////////////////////////////////////////
 
 //ITEM ARRAY
-let ItemDB = [];
+/!*let ItemDB = [];*!/
+import {ItemDB} from "../db/database.js";
 
 //clear fields
 const ItemClearForm = ()=>{
@@ -227,6 +279,7 @@ $("#item_delete_button").on("click", function() {
     }
 });
 
+
 //----------------update item----------------------//
 $("#item_update_button").on("click", function() {
     if(selectedItemIndex!== undefined) { // Check if an item is selected
@@ -253,3 +306,4 @@ $("#item_update_button").on("click", function() {
         }
     }
 });
+*/
