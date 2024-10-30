@@ -313,32 +313,60 @@
     </section>
 </main>
 
+<main id="orderDetails_section">
+<section>
+    <div id="form">
+        <div class="text-center gradient-text">
+            <h3>Order Details Form</h3>
+        </div>
+
+        <div class="col table1">
+            <table class="table" id="item-details-table">
+                <thead class="table-dark">
+                <tr>
+                    <th scope="col">Order Id</th>
+                    <th scope="col">Order Date</th>
+                    <th scope="col">Customer Id</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Discount</th>
+                    <th scope="col">Sub Total</th>
+                    <th scope="col">Cash</th>
+                    <th scope="col">Balance</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+</main>
 
 <script>
     let Dashboard = document.getElementById("Dashboard");
     let Customer = document.getElementById("Customer");
     let Item = document.getElementById("Item");
     let Order = document.getElementById("Order");
-   // let Order_history = document.getElementById("Order_history");
+   let Order_history = document.getElementById("Order_history");
 
     let Dashboard_section = document.getElementById("Dashboard_section");
     let customer_section = document.getElementById("customer-section");
     let item_section = document.getElementById("item-section");
     let order_section = document.getElementById("Order-section");
-   // let order_history_section = document.getElementById("order-history-section");
+   let order_history_section = document.getElementById("orderDetails_section");
 
 
     customer_section.style.display = "none";
     item_section.style.display = "none";
     order_section.style.display = "none";
-    //order_history_section.style.display = "none";
+    order_history_section.style.display = "none";
 
     Dashboard.addEventListener('click', function () {
         Dashboard_section.style.display = "block"
         customer_section.style.display = "none";
         item_section.style.display = "none";
         order_section.style.display = "none";
-        /*order_history_section.style.display = "none";*/
+        order_history_section.style.display = "none";
 
     });
 
@@ -347,7 +375,7 @@
         customer_section.style.display = "block";
         item_section.style.display = "none";
         order_section.style.display = "none";
-       // order_history_section.style.display = "none";
+       order_history_section.style.display = "none";
     });
 
     Item.addEventListener('click', function () {
@@ -355,7 +383,7 @@
         customer_section.style.display = "none";
         item_section.style.display = "block";
         order_section.style.display = "none";
-       // order_history_section.style.display = "none";
+       order_history_section.style.display = "none";
     });
 
     Order.addEventListener('click', function () {
@@ -366,13 +394,13 @@
         //order_history_section.style.display = "none";
     });
 
-   /* Order_history.addEventListener('click', function () {
+    Order_history.addEventListener('click', function () {
         Dashboard_section.style.display = "none"
         customer_section.style.display = "none";
         item_section.style.display = "none";
         order_section.style.display = "none";
         order_history_section.style.display = "block";
-    })*/
+    })
 
 </script>
 <script src="assest/lib/jquery-3.7.1.min.js"></script>
