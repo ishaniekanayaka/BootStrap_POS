@@ -212,8 +212,10 @@
                             Invoice Details
                         </div>
                         <div class="mb-3 col-md-10 mx-auto mt-3">
-                            <label for="order_date" class="form-label">Order Date</label>
-                            <input type="date" class="form-control" id="order_date" disabled>
+                            <!--<label for="order_date" class="form-label">Order Date</label>
+                            <input type="date" class="form-control" id="order_date" disabled>-->
+                            <label for="inputDate" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="inputDate">
                         </div>
                         <div class="mb-3 col-md-10 mx-auto">
                             <label for="order_id" class="form-label">Order Id</label>
@@ -302,7 +304,7 @@
                                     <th scope="col">Qty</th>
                                 </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="OrderTableBody">
                                 </tbody>
                             </table>
                         </div>
@@ -319,9 +321,8 @@
         <div class="text-center gradient-text">
             <h3>Order Details Form</h3>
         </div>
-
-        <div class="col table1">
-            <table class="table" id="item-details-table">
+        <div class="col table1 table-responsive">
+            <table class="table table-hover table-striped table-bordered text-center align-middle mt-3" id="item-details-table">
                 <thead class="table-dark">
                 <tr>
                     <th scope="col">Order Id</th>
@@ -334,7 +335,7 @@
                     <th scope="col">Balance</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="Order_detailTableBody">
                 </tbody>
             </table>
         </div>
@@ -391,7 +392,7 @@
         customer_section.style.display = "none";
         item_section.style.display = "none";
         order_section.style.display = "block";
-        //order_history_section.style.display = "none";
+        order_history_section.style.display = "none";
     });
 
     Order_history.addEventListener('click', function () {
