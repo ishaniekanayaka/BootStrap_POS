@@ -8,6 +8,7 @@ import CustomerModel from "../models/customer.js";
 //customer array
 /*let CustomerDB = [];*/
 import {CustomerDB} from "../db/database.js";
+import {loadCustomerCbx} from "./OrderController.js";
 
 
 const validateMobile = (mobile) => {
@@ -97,6 +98,7 @@ $("#customer_add_button").on("click", function() {
 
         customerTable();
         clearForm();
+        loadCustomerCbx();
         Swal.fire({
             title: "Customer Saved!",
             text: "You clicked the button!",
