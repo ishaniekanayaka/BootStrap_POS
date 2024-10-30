@@ -7,6 +7,7 @@
 /*let ItemDB = [];*/
 import {ItemDB} from "../db/database.js";
 import ItemModel from "../models/item.js";
+import {loadItemCbx} from "./OrderController.js";
 
 const validateQty = (qty) =>{
     const qtyRegex = /^[0-9]{1,5}$/;
@@ -88,6 +89,7 @@ $("#item_add_button").on("click", function() {
 
         itemTable();
         ItemClearForm();
+        loadItemCbx();
 
         Swal.fire({
             title: "Item Saved!",
