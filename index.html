@@ -21,16 +21,16 @@
                     <a id="Dashboard" class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a id="Customer" class="nav-link" href="#">Customer</a>
+                    <a id="Customer_nav" class="nav-link" href="#">Customer</a>
                 </li>
                 <li class="nav-item">
-                    <a id="Item" class="nav-link" href="#">Item</a>
+                    <a id="Item_nav" class="nav-link" href="#">Item</a>
                 </li>
                 <li class="nav-item">
-                    <a id="Order" class="nav-link" href="#">Order</a>
+                    <a id="Order_nav" class="nav-link" href="#">Order</a>
                 </li>
                 <li class="nav-item">
-                    <a id="Order_history" class="nav-link" href="#">Order History</a>
+                    <a id="Order_history_nav" class="nav-link" href="#">Order History</a>
                 </li>
             </ul>
         </div>
@@ -202,7 +202,7 @@
 
 
             <!--Order-->
-<main id="Order-section">
+<!--<main id="Order-section">
     <section>
         <div class="container mb-5">
             <div class="row">
@@ -212,8 +212,8 @@
                             Invoice Details
                         </div>
                         <div class="mb-3 col-md-10 mx-auto mt-3">
-                            <!--<label for="order_date" class="form-label">Order Date</label>
-                            <input type="date" class="form-control" id="order_date" disabled>-->
+                            &lt;!&ndash;<label for="order_date" class="form-label">Order Date</label>
+                            <input type="date" class="form-control" id="order_date" disabled>&ndash;&gt;
                             <label for="inputDate" class="form-label">Date</label>
                             <input type="date" class="form-control" id="inputDate">
                         </div>
@@ -290,8 +290,9 @@
 
                         <div class="d-flex mt-1 mb-3 text-center justify-content-center"  id="button1">
                             <button id="Add_btn1" type="button" class="btn btn-outline-primary mx-2">SAVE</button>
-                            <button id="Delete_btn1" type="button" class="btn btn-outline-secondary mx-2">DELETE</button>
                             <button id="Update_btn1"  type="button" class="btn btn-outline-primary mx-2">UPDATE</button>
+                            <button id="remove_btn1" type="button" class="btn btn-outline-secondary mx-2">REMOVE</button>
+
                         </div>
 
                         <div class="col m-3 table-responsive">
@@ -314,7 +315,174 @@
             </div>
         </div>
     </section>
-</main>
+</main>-->
+
+<section class="container-fluid order-section " id="Order-section">
+    <div class="container-fluid " id="placeOrder">
+        <section class="row m-2">
+            <div class="col bg-light m-1 card od col-md-6 col-lg-4 col-sm-12 ">
+                <div class="card-header gradient-text bg-info-subtle">
+                    <h5 class="card-title text-start text-Black ">Orders Details</h5>
+                </div>
+                <div class="card-body">
+                    <form class="row ">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold">Order Id :</label>
+                                <input class="form-control" id="orderId" placeholder="O001" disabled>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold">Date :</label>
+                                <input class="form-control" id="orderDate" required type="date" disabled>
+                            </div>
+
+                            <div class="col-md-6 mt-3 mb-3">
+                                <label class="form-label fw-bold">Customer ID :</label>
+                                <select class="form-select" name="customer" id="cusIdOption">
+                                    <option>C00-000</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6 mt-3 mb-3">
+                                <label class="form-label fw-bold">Customer name:</label>
+                                <input class="form-control" id="orderCusName" placeholder="Ishani" disabled>
+                            </div>
+
+                            <div class="col-md-12 mt-3 mb-3">
+                                <label class="form-label fw-bold">Salary :</label>
+                                <input class="form-control" id="orderCusSalary" placeholder="10000.00" disabled>
+                            </div>
+
+                            <div class="col-md-12 mt-3 mb-3">
+                                <label class="form-label fw-bold">Address :</label>
+                                <input class="form-control" id="orderCusAddress" placeholder="Matara" disabled>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col bg-light m-1 card col-md-6 col-lg-4">
+                <div class="card-header gradient-text bg-info-subtle">
+                    <h5 class="card-title text-start text-Black">Item Details</h5>
+                </div>
+                <div class="card-body">
+                    <form class="row">
+                        <div class="row mb-3">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold">Item ID :</label>
+                                <select class="form-select" name="customer" id="itemIdOption">
+
+
+                                </select>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold" for="orderFormItemName">Item name:</label>
+                                <input class="form-control" id="orderFormItemName" placeholder="Cappuccino" disabled>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold" for="orderFormPrice">Price :</label>
+                                <input class="form-control" id="orderFormPrice" placeholder="525.00" disabled>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold" for="orderQty">QtyOnHand :</label>
+                                <input class="form-control" id="orderFormQtyOnHand" placeholder="200" disabled>
+                            </div>
+
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-12 mb-3 fw-bold">
+                                <label class="form-label">Order Quantity :</label>
+                                <input class="form-control" placeholder="2" id="orderQty">
+                                <span class="errorOrderQty">Please enter a amount lower than: <span id="orderQtyValue"></span></span>
+                                <span class="errorQty">item Qty is required field: Only Numbers</span>
+                            </div>
+                        </div>
+
+                        <div class="col-12 text-center mt-3">
+                            <button class="btn btn-primary p-2 px-5 text-light bg-opacity-50 fw-bold " id="btn_addItem"
+                                    type="button">Add Item
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+            <div class="col bg-white m-1 card" style="width: 18rem;">
+                <div class="card-header gradient-text bg-info-subtle">
+                    <h5 class="card-title text-start text-black">Payment Details</h5>
+                </div>
+                <div class="card-body">
+                    <div class="col-md-25 fw-bold d-flex justify-content-center gap-xxl-4 ">
+                        <h2 class="fw-lighter text-primary " >Total :</h2>
+                        <input type="text" class="fw-lighter text-primary" id="total" placeholder="00.00" style="font-size: 25px ; width: 100px; border: none" disabled>
+                    </div>
+
+                    <div class="col-md-25 fw-bold d-flex justify-content-center gap-xxl-4  ">
+                        <h2 class="fw-lighter text-danger " >SubTotal :</h2>
+                        <input type="text" class="fw-lighter text-danger" id="subTotal" placeholder="00.00" style="font-size: 25px ; width: 100px; border: none" disabled>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 fw-bold mt-2">
+                            <label class="form-label" for="orderFormItemName">Cash :</label>
+                            <input class="form-control" id="txtCash" placeholder="5000">
+                            <span id="cashError">Insufficient credit</span>
+                        </div>
+
+                        <div class="col-md-6 fw-bold mt-2">
+                            <label class="form-label" for="orderFormItemName">Discount :</label>
+                            <input class="form-control" id="txtDiscount" placeholder="00">
+                        </div>
+                    </div>
+
+                    <div class="row ">
+                        <div class="col-md-13 fw-bold mt-2">
+                            <label class="form-label" for="orderFormItemName">Balance :</label>
+                            <input class="form-control" id="txtBalance" placeholder="0000.00" disabled>
+                        </div>
+
+                        <div class="text-center mt-md-4">
+                            <button class="btn btn-primary p-2 px-5 text-light bg-opacity-50 fw-bold my-5" id="btnPurchase">Purchase
+                            </button>
+                        </div>
+                        <div class="progress mt-3">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" id="progressBarOrder"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="row mt-3 ">
+            <div class="col">
+                <table class="table table-hover table-borderless table-striped caption-top text-center" id="orderCart">
+                    <caption>All Orders</caption>
+                    <thead class="text-success rounded-3" style="background-color: #2d3d2d">
+                    <tr>
+                        <th>Item Code</th>
+                        <th>Item Name</th>
+                        <th>Item Price</th>
+                        <th>Qty</th>
+                        <th>Total</th>
+                    </tr>
+                    </thead>
+                    <tbody class="tbody">
+
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</section>
 
 <main id="orderDetails_section">
 <section>
@@ -346,10 +514,10 @@
 
 <script>
     let Dashboard = document.getElementById("Dashboard");
-    let Customer = document.getElementById("Customer");
-    let Item = document.getElementById("Item");
-    let Order = document.getElementById("Order");
-   let Order_history = document.getElementById("Order_history");
+    let Customer = document.getElementById("Customer_nav");
+    let Item = document.getElementById("Item_nav");
+    let Order = document.getElementById("Order_nav");
+   let Order_history = document.getElementById("Order_history_nav");
 
     let Dashboard_section = document.getElementById("Dashboard_section");
     let customer_section = document.getElementById("customer-section");
