@@ -7,8 +7,8 @@ import CustomerModel from "../models/customer.js";
 
 //customer array
 /*let CustomerDB = [];*/
-import {CustomerDB} from "../db/database.js";
-import {loadCustomerCbx} from "./OrderController.js";
+import  {CustomerDB} from "../db/database.js";
+/*import {loadCustomerCbx} from "./OrderController.js";*/
 
 
 const validateMobile = (mobile) => {
@@ -48,8 +48,9 @@ const customerTable = () => {
     });
 }
 
-//----------------save customer----------------------//
+//----------------save customer--------------------//
 $("#customer_add_button").on("click", function() {
+
     let First_Name = $("#firstName").val(); //empty wwenn ba
     let Last_Name = $("#lastName").val();
     let Email = $("#email").val(); //meketh emty wenn ba format ekk thiyen oni
@@ -98,7 +99,7 @@ $("#customer_add_button").on("click", function() {
 
         customerTable();
         clearForm();
-        loadCustomerCbx();
+        //loadCustomerCbx();
         Swal.fire({
             title: "Customer Saved!",
             text: "You clicked the button!",
@@ -201,111 +202,3 @@ $("#customer_update_button").on("click", function() {
 });
 
 
-/*
-
-///////////////////////////////////////////////////////
-        /!*Item  & Table update*!/
-//////////////////////////////////////////////////////
-
-//ITEM ARRAY
-/!*let ItemDB = [];*!/
-import {ItemDB} from "../db/database.js";
-
-//clear fields
-const ItemClearForm = ()=>{
-    $("#itemName").val('');
-    $("#qty").val('');
-    $("#itemDescription").val('');
-    $("#price").val('');
-}
-
-//load all item table
-const itemTable = () => {
-    $("#itemTableBody").empty();
-    ItemDB.map((item,index) => {
-        let Data = `<tr>
-            <td>${item.id}</td>
-            <td>${item.ItemName}</td>
-            <td>${item.itemDescription}</td>
-            <td>${item.ItemQuantity}</td>
-            <td>${item.ItemPrice}</td>
-            </tr>`
-        $("#itemTableBody").append(Data);
-    });
-}
-
-$("#item_add_button").on("click", function() {
-    let Item_Name = $("#itemName").val();
-    let Item_Quantity = $("#qty").val();
-    let Description = $("#itemDescription").val();
-    let Item_Price = $("#price").val();
-
-
-    console.log()
-
-    let itemData = {
-        id : ItemDB.length + 1,
-        ItemName : Item_Name,
-        itemDescription : Description,
-        ItemQuantity : Item_Quantity,
-        ItemPrice : Item_Price
-    }
-    ItemDB.push(itemData);
-
-    itemTable();
-    ItemClearForm();
-});
-
-//----------------get the item----------------------//
-let selectedItemIndex;
-
-$("#itemTableBody").on("click", "tr", function (){
-    selectedItemIndex = $(this).index();
-    let itemData = ItemDB[selectedItemIndex]; //get the item data
-    $('#itemName').val(itemData.ItemName);
-    $('#qty').val(itemData.ItemQuantity);
-    $('#itemDescription').val(itemData.itemDescription);
-    $('#price').val(itemData.ItemPrice);
-
-});
-
-//----------------delete item----------------------//
-$("#item_delete_button").on("click", function() {
-    if(selectedItemIndex!== undefined){
-        ItemDB.splice(selectedItemIndex, 1);
-        itemTable();
-        ItemClearForm();
-        selectedItemIndex = undefined;
-    }else {
-        alert("Please select a item to delete");
-    }
-});
-
-
-//----------------update item----------------------//
-$("#item_update_button").on("click", function() {
-    if(selectedItemIndex!== undefined) { // Check if an item is selected
-        let Item_Name = $("#itemName").val();
-        let Item_Quantity = $("#qty").val();
-        let Description = $("#itemDescription").val();
-        let Item_Price = $("#price").val();
-
-        // Check if the inputs are not empty before updating
-        if (Item_Name && Item_Quantity && Description && Item_Price) {
-            ItemDB[selectedItemIndex] = {
-                id: ItemDB[selectedItemIndex].id, // Retain the same ID
-                ItemName: Item_Name,
-                itemDescription: Description,
-                ItemQuantity: Item_Quantity,
-                ItemPrice: Item_Price
-            };
-
-            itemTable(); // Refresh the table after updating the item
-            ItemClearForm(); // Clear the form fields
-            selectedItemIndex = undefined; // Reset the selected index
-        } else {
-            alert("Please fill all fields before updating.");
-        }
-    }
-});
-*/

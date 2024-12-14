@@ -1,3 +1,4 @@
 export let CustomerDB = [];
 export let ItemDB = [];
-export let OrderDB = [];
+export let cart=[];
+export let orderHistory = [] ;

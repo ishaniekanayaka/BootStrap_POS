@@ -1,43 +1,88 @@
 export default class orderModel{
-
-    constructor(itemcode,itemname,itemprice,qty,total) {
-        this._itemcode = itemcode;
-        this._itemname = itemname;
-        this._itemprice = itemprice;
-        this._qty = qty;
+    constructor(cusID, cusName, order_id, date, itemCode, itemName, itemPrice, itemQtyOnHand, orderQty, total) {
+        this._cusID = cusID;
+        this._cusName = cusName;
+        this._order_id = order_id;
+        this._date = date;
+        this._itemCode = itemCode;
+        this._itemName = itemName;
+        this._itemPrice = itemPrice;
+        this._itemQtyOnHand = itemQtyOnHand;
+        this._orderQty = orderQty;
         this._total = total;
     }
 
-    get itemcode() {
-        return this._itemcode;
+
+    get cusID() {
+        return this._cusID;
     }
 
-    set itemcode(value) {
-        this._itemcode = value;
+    set cusID(value) {
+        this._cusID = value;
     }
 
-    get itemname() {
-        return this._itemname;
+    get cusName() {
+        return this._cusName;
     }
 
-    set itemname(value) {
-        this._itemname = value;
+    set cusName(value) {
+        this._cusName = value;
     }
 
-    get itemprice() {
-        return this._itemprice;
+    get order_id() {
+        return this._order_id;
     }
 
-    set itemprice(value) {
-        this._itemprice = value;
+    set order_id(value) {
+        this._order_id = value;
     }
 
-    get qty() {
-        return this._qty;
+    get date() {
+        return this._date;
     }
 
-    set qty(value) {
-        this._qty = value;
+    set date(value) {
+        this._date = value;
+    }
+
+    get itemCode() {
+        return this._itemCode;
+    }
+
+    set itemCode(value) {
+        this._itemCode = value;
+    }
+
+    get itemName() {
+        return this._itemName;
+    }
+
+    set itemName(value) {
+        this._itemName = value;
+    }
+
+    get itemPrice() {
+        return this._itemPrice;
+    }
+
+    set itemPrice(value) {
+        this._itemPrice = value;
+    }
+
+    get itemQtyOnHand() {
+        return this._itemQtyOnHand;
+    }
+
+    set itemQtyOnHand(value) {
+        this._itemQtyOnHand = value;
+    }
+
+    get orderQty() {
+        return this._orderQty;
+    }
+
+    set orderQty(value) {
+        this._orderQty = value;
     }
 
     get total() {
@@ -47,5 +92,4 @@ export default class orderModel{
     set total(value) {
         this._total = value;
     }
-
 }

@@ -8,7 +8,7 @@
 
 </head>
 <body class="bg-primary-subtle">
-
+<h2>Hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</h2>
 <nav class="navbar navbar-expand-lg bg-info text-white">
     <div class="container-fluid">
         <a class="navbar-brand" href="#"><img src="image/logo.png" width="60"></a>
@@ -201,290 +201,215 @@
 </div>
 
 
-            <!--Order-->
-<!--<main id="Order-section">
-    <section>
-        <div class="container mb-5">
-            <div class="row">
-                <div class="col-md-6 mt-3">
-                    <div class="card" id="invoiceDetails">
-                        <div class="card-header text-center gradient-text bg-info-subtle">
-                            Invoice Details
+<section id="Order-section">
+
+
+    <div class="container my-4">
+
+        <h1 class="mt-2 mb-5 text-center" >Manage Order</h1>
+        <!--    section-->
+        <div class="row">
+            <!-- Invoice Details -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-header bg-info-subtle">
+                        Invoice Details
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="orderID" class="form-label">Order ID</label>
+                            <input type="text" class="form-control" id="orderID" value="">
                         </div>
-                        <div class="mb-3 col-md-10 mx-auto mt-3">
-                            &lt;!&ndash;<label for="order_date" class="form-label">Order Date</label>
-                            <input type="date" class="form-control" id="order_date" disabled>&ndash;&gt;
-                            <label for="inputDate" class="form-label">Date</label>
-                            <input type="date" class="form-control" id="inputDate">
+                        <div class="mb-3">
+                            <label for="date" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="date" value="">
                         </div>
-                        <div class="mb-3 col-md-10 mx-auto">
-                            <label for="order_id" class="form-label">Order Id</label>
-                            <input type="text" class="form-control" id="order_id" disabled>
+                        <div class="mb-3">
+                            <label for="Customer_Id" class="form-label">Customer</label>
+                            <div class="input-group flex-grow-1">
+                                <!-- Use flex-grow to take available space -->
+                                <input id="customerSearchId" type="text" class="form-control"
+                                       placeholder="Input customer id"
+                                       aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <span class="input-group-text search-span" id="basic-addon4">Search</span>
+                            </div>
+                            <button id="customerSearch" type="button" class="btn btn-primary mt-3 ">search</button>
+                            <button type="button" class="btn btn btn-warning mt-3  " id="btn_clear_order_customer">Clear</button>
+
                         </div>
-                        <div class="mb-3 col-md-10 mx-auto">
-                            <label for="customer_id1" class="form-label">Customer Id</label>
-                            <select class="form-select" id="customer_id1">
-                                <option selected>Select Customer Id</option>
-                            </select>
+
+                        <div class="mb-3">
+                            <label for="customer_ID" class="form-label">Customer ID</label>
+                            <input type="text" class="form-control" id="customer_ID" value="" readonly>
                         </div>
-                        <div class="mb-3 col-md-10 mx-auto">
-                            <label for="customer_name1" class="form-label">Customer Name</label>
-                            <input type="text" class="form-control" id="customer_name1" disabled>
+                        <div class="mb-3">
+                            <label for="customer_Name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="customer_Name" value="" readonly>
                         </div>
-                        <div class="mb-3 col-md-10 mx-auto">
-                            <label for="total" class="form-label">Total</label>
-                            <input type="number" class="form-control" id="total" disabled>
+                        <div class="mb-3">
+                            <label for="Mobile" class="form-label">phoneNumber</label>
+                            <input type="text" class="form-control" id="customer_PhoneNumber" value="" readonly>
                         </div>
-                        <div class="mb-3 col-md-10 mx-auto">
-                            <label for="discount" class="form-label">Discount</label>
-                            <input type="number" class="form-control" id="discount">
-                        </div>
-                        <div class="mb-3 col-md-10 mx-auto">
-                            <label for="sub_total" class="form-label">Sub Total</label>
-                            <input type="number" class="form-control" id="sub_total" disabled>
-                        </div>
-                        <div class="mb-3 col-md-10 mx-auto">
-                            <label for="Cash" class="form-label">Cash</label>
-                            <input type="number" class="form-control" id="Cash">
-                        </div>
-                        <div class="mb-3 col-md-10 mx-auto">
-                            <label for="balance" class="form-label">Balance</label>
-                            <input type="number" class="form-control" id="balance" disabled>
-                        </div>
-                        <div class="d-flex mt-1 mb-3 text-center justify-content-center">
-                            <button id="Add_btn" type="button" class="btn btn-outline-primary mx-2">SAVE</button>
-                            <button id="Delete_btn" type="button" class="btn btn-outline-secondary mx-2">DELETE</button>
-                            <button id="Update_btn"  type="button" class="btn btn-outline-primary mx-2">UPDATE</button>
+                        <div class="mb-3">
+                            <label for="customer_Address" class="form-label">Address</label>
+                            <input type="text" class="form-control" id="customer_Address" value="" readonly>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="col-md-6 mt-3">
-                    <div class="card" id="orderDetails1">
-                        <div class="card-header text-center gradient-text bg-info-subtle">
-                            Order Details
+            <!-- Item Selection -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-header bg-info-subtle">
+                        Item Select
+                    </div>
+                    <div class="card-body">
+                        <label for="Customer_Id" class="form-label">Item code</label>
+                        <div class="input-group flex-grow-1">
+                            <!-- Use flex-grow to take available space -->
+                            <input id="itemSearchId" type="text" class="form-control"
+                                   placeholder="Input item code"
+                                   aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <span class="input-group-text search-span" >Search</span>
+                        </div>
+                        <button id="itemSearch" type="button" class="btn btn-primary mt-3 ">search</button>
+                        <button type="button" class="btn btn btn-warning mt-3  " id="btn_clear_order_item">Clear</button>
+
+
+                        <div class="mb-3">
+                            <label for="itemCode" class="form-label">Item code</label>
+                            <input type="text" class="form-control" id="itemCode" value="" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="itemName" class="form-label">Item Name</label>
+                            <input type="text" class="form-control" id="item_Name" value="" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="itemDescription" class="form-label">Item Description</label>
+                            <input type="text" class="form-control" id="item_Description" value="" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="itemPrice" class="form-label">Price</label>
+                            <input type="text" class="form-control" id="itemPrice" value="" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="itemQtyOnH" class="form-label">Qty On Hand</label>
+                            <input type="text" class="form-control" id="itemQtyOnH" value="" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="orderQty" class="form-label">Order Quantity</label>
+                            <input type="number" class="form-control" id="orderQty" value="">
+                        </div>
+                        <button id="add_btn" class="btn btn-info">Add Item</button>
+                        <button id="remove_cart" type="button" class="btn btn-danger">Remove cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Total Section -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-header bg-info-subtle">
+                        Total Price
+                    </div>
+                    <div class="card-body total-section">
+                        <h2 class="total" id="totalDisplay">Total: 00.00</h2>
+
+                        <div class="mb-3">
+                            <label for="discount_range" class="form-label">discount Range%</label>
+                            <input type="text" class="form-control" id="discount_range"  value="" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="discount" class="form-label">Discount </label>
+                            <input type="text" class="form-control" id="discount" value="" readonly>
                         </div>
 
-                        <div class="m-3 col-md-11">
-                            <label for="item_code1" class="form-label">Item Code</label>
-                            <select class="form-select"  id="item_code1">
-                                <option selected>Select Item Code</option>
-                            </select>
-                        </div>
-                        <div class="m-3 col-md-11">
-                            <label for="item_name1" class="form-label">Item Name</label>
-                            <input type="text" class="form-control" id="item_name1" placeholder="Item Name Here" disabled>
-                        </div>
-                        <div class="m-3 col-md-11">
-                            <label for="price1" class="form-label">Price</label>
-                            <input type="number" class="form-control" id="price1" placeholder="Price Here" disabled>
-                        </div>
-                        <div class="m-3 col-md-11">
-                            <label for="qty_on_hand" class="form-label">Qty on Hand</label>
-                            <input type="number" class="form-control" id="qty_on_hand" placeholder="Qty on hand Here" disabled>
-                        </div>
-                        <div class="m-3 col-md-11">
-                            <label for="getQty" class="form-label">Getting Qty</label>
-                            <input type="number" class="form-control" id="getQty" placeholder="Qty Here">
+
+                        <div class="mb-3">
+                            <label for="amount" class="form-label">amount </label>
+                            <input type="text" class="form-control" id="amount" value="" readonly>
                         </div>
 
-                        <div class="d-flex mt-1 mb-3 text-center justify-content-center"  id="button1">
-                            <button id="Add_btn1" type="button" class="btn btn-outline-primary mx-2">SAVE</button>
-                            <button id="Update_btn1"  type="button" class="btn btn-outline-primary mx-2">UPDATE</button>
-                            <button id="remove_btn1" type="button" class="btn btn-outline-secondary mx-2">REMOVE</button>
 
+                        <div class="mb-3">
+                            <label for="cash" class="form-label">cash</label>
+                            <input type="text" class="form-control" id="cash" value="">
+                        </div>
+                        <button id="btn_purches" class="btn btn-success">Purchase</button>
+                        <div class="mb-3">
+                            <label for="balance" class="form-label">Balance</label>
+                            <input type="text" class="form-control" id="balance" value="" readonly>
                         </div>
 
-                        <div class="col m-3 table-responsive">
-                            <table class="table table-hover table-striped table-bordered text-center align-middle mt-3" id="item-order-table">
-                                <thead class="table-dark">
-                                <tr>
-                                    <th scope="col">Item Code</th>
-                                    <th scope="col">Item Name</th>
-                                    <th scope="col">Price Per Kg</th>
-                                    <th scope="col">Qty On Hand</th>
-                                    <th scope="col">Qty</th>
-                                </tr>
-                                </thead>
-                                <tbody id="OrderTableBody">
-                                </tbody>
-                            </table>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-</main>-->
+        <!-- Order Details Table -->
+        <div class="row mt-4 ">
+            <table class="table table-bordered">
+                <thead class="table-success">
+                <tr>
 
-<section class="container-fluid order-section " id="Order-section">
-    <div class="container-fluid " id="placeOrder">
-        <section class="row m-2">
-            <div class="col bg-light m-1 card od col-md-6 col-lg-4 col-sm-12 ">
-                <div class="card-header gradient-text bg-info-subtle">
-                    <h5 class="card-title text-start text-Black ">Orders Details</h5>
-                </div>
-                <div class="card-body">
-                    <form class="row ">
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label fw-bold">Order Id :</label>
-                                <input class="form-control" id="orderId" placeholder="O001" disabled>
-                            </div>
+                    <th>Item Code</th>
+                    <th>Item Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
+                </thead>
+                <tbody id="cart">
+                <tr>
 
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label fw-bold">Date :</label>
-                                <input class="form-control" id="orderDate" required type="date" disabled>
-                            </div>
-
-                            <div class="col-md-6 mt-3 mb-3">
-                                <label class="form-label fw-bold">Customer ID :</label>
-                                <select class="form-select" name="customer" id="cusIdOption">
-                                    <option>C00-000</option>
-                                </select>
-                            </div>
-
-                            <div class="col-md-6 mt-3 mb-3">
-                                <label class="form-label fw-bold">Customer name:</label>
-                                <input class="form-control" id="orderCusName" placeholder="Ishani" disabled>
-                            </div>
-
-                            <div class="col-md-12 mt-3 mb-3">
-                                <label class="form-label fw-bold">Salary :</label>
-                                <input class="form-control" id="orderCusSalary" placeholder="10000.00" disabled>
-                            </div>
-
-                            <div class="col-md-12 mt-3 mb-3">
-                                <label class="form-label fw-bold">Address :</label>
-                                <input class="form-control" id="orderCusAddress" placeholder="Matara" disabled>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <div class="col bg-light m-1 card col-md-6 col-lg-4">
-                <div class="card-header gradient-text bg-info-subtle">
-                    <h5 class="card-title text-start text-Black">Item Details</h5>
-                </div>
-                <div class="card-body">
-                    <form class="row">
-                        <div class="row mb-3">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label fw-bold">Item ID :</label>
-                                <select class="form-select" name="customer" id="itemIdOption">
-
-
-                                </select>
-                            </div>
-
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label fw-bold" for="orderFormItemName">Item name:</label>
-                                <input class="form-control" id="orderFormItemName" placeholder="Cappuccino" disabled>
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label fw-bold" for="orderFormPrice">Price :</label>
-                                <input class="form-control" id="orderFormPrice" placeholder="525.00" disabled>
-                            </div>
-
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label fw-bold" for="orderQty">QtyOnHand :</label>
-                                <input class="form-control" id="orderFormQtyOnHand" placeholder="200" disabled>
-                            </div>
-
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-md-12 mb-3 fw-bold">
-                                <label class="form-label">Order Quantity :</label>
-                                <input class="form-control" placeholder="2" id="orderQty">
-                                <span class="errorOrderQty">Please enter a amount lower than: <span id="orderQtyValue"></span></span>
-                                <span class="errorQty">item Qty is required field: Only Numbers</span>
-                            </div>
-                        </div>
-
-                        <div class="col-12 text-center mt-3">
-                            <button class="btn btn-primary p-2 px-5 text-light bg-opacity-50 fw-bold " id="btn_addItem"
-                                    type="button">Add Item
-                            </button>
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-
-            <div class="col bg-white m-1 card" style="width: 18rem;">
-                <div class="card-header gradient-text bg-info-subtle">
-                    <h5 class="card-title text-start text-black">Payment Details</h5>
-                </div>
-                <div class="card-body">
-                    <div class="col-md-25 fw-bold d-flex justify-content-center gap-xxl-4 ">
-                        <h2 class="fw-lighter text-primary " >Total :</h2>
-                        <input type="text" class="fw-lighter text-primary" id="total" placeholder="00.00" style="font-size: 25px ; width: 100px; border: none" disabled>
-                    </div>
-
-                    <div class="col-md-25 fw-bold d-flex justify-content-center gap-xxl-4  ">
-                        <h2 class="fw-lighter text-danger " >SubTotal :</h2>
-                        <input type="text" class="fw-lighter text-danger" id="subTotal" placeholder="00.00" style="font-size: 25px ; width: 100px; border: none" disabled>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6 fw-bold mt-2">
-                            <label class="form-label" for="orderFormItemName">Cash :</label>
-                            <input class="form-control" id="txtCash" placeholder="5000">
-                            <span id="cashError">Insufficient credit</span>
-                        </div>
-
-                        <div class="col-md-6 fw-bold mt-2">
-                            <label class="form-label" for="orderFormItemName">Discount :</label>
-                            <input class="form-control" id="txtDiscount" placeholder="00">
-                        </div>
-                    </div>
-
-                    <div class="row ">
-                        <div class="col-md-13 fw-bold mt-2">
-                            <label class="form-label" for="orderFormItemName">Balance :</label>
-                            <input class="form-control" id="txtBalance" placeholder="0000.00" disabled>
-                        </div>
-
-                        <div class="text-center mt-md-4">
-                            <button class="btn btn-primary p-2 px-5 text-light bg-opacity-50 fw-bold my-5" id="btnPurchase">Purchase
-                            </button>
-                        </div>
-                        <div class="progress mt-3">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" id="progressBarOrder"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="row mt-3 ">
-            <div class="col">
-                <table class="table table-hover table-borderless table-striped caption-top text-center" id="orderCart">
-                    <caption>All Orders</caption>
-                    <thead class="text-success rounded-3" style="background-color: #2d3d2d">
-                    <tr>
-                        <th>Item Code</th>
-                        <th>Item Name</th>
-                        <th>Item Price</th>
-                        <th>Qty</th>
-                        <th>Total</th>
-                    </tr>
-                    </thead>
-                    <tbody class="tbody">
-
-                    </tbody>
-                </table>
-            </div>
-        </section>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </section>
 
-<main id="orderDetails_section">
+
+<section id="orderDetails_section">
+    <div class="container">
+        <h1 class="mt-2 mb-5 text-center" >ALL Orders</h1>
+        <div class="row justify-content-center align-items-center ">
+
+            <div class="col-12 col-lg-12 mb-1  pt-5">
+
+                <div class="card p-3 bg-opacity-50    ">
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-custom">
+                            <thead>
+                            <tr>
+                                <th scope="col">order Id</th>
+                                <th scope="col">date</th>
+                                <th scope="col">customer Id</th>
+                                <th scope="col">Item Name</th>
+                                <th scope="col">Item Price</th>
+                                <th scope="col">Order Quantity</th>
+                                <th scope="col">sub total</th>
+                                <th scope="col">discount range %</th>
+                                <th scope="col">discount</th>
+                                <th scope="col">final Amount</th>
+
+
+                            </tr>
+                            </thead>
+                            <tbody id="OrderHistoryTable">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!--<main id="orderDetails_section">
 <section>
     <div id="form">
         <div class="text-center gradient-text">
@@ -509,7 +434,7 @@
             </table>
         </div>
     </div>
-</section>
+</section>-->
 </main>
 
 <script>
