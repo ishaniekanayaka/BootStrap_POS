@@ -1,4 +1,4 @@
-export default class orderModel{
+export default class Order_Model{
     constructor(cusID, cusName, order_id, date, itemCode, itemName, itemPrice, itemQtyOnHand, orderQty, total) {
         this._cusID = cusID;
         this._cusName = cusName;
@@ -11,7 +11,6 @@ export default class orderModel{
         this._orderQty = orderQty;
         this._total = total;
     }
-
 
     get cusID() {
         return this._cusID;
