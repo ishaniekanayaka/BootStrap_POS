@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Ishani POS-SYSTEM</title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
+
 <body class="bg-primary-subtle">
-<h2>Hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</h2>
-<nav class="navbar navbar-expand-lg bg-info text-white">
+<!-- Header Section -->
+<nav class="navbar navbar-expand-lg bg-info">
     <div class="container-fluid">
         <a class="navbar-brand" href="#"><img src="image/logo.png" width="60"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,190 +20,222 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a id="Dashboard" class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a id="dashboard-nav" class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a id="Customer_nav" class="nav-link" href="#">Customer</a>
+                    <a id="customer-nav" class="nav-link" href="#">Customer</a>
                 </li>
                 <li class="nav-item">
-                    <a id="Item_nav" class="nav-link" href="#">Item</a>
+                    <a id="item-nav" class="nav-link" href="#">Item</a>
                 </li>
                 <li class="nav-item">
-                    <a id="Order_nav" class="nav-link" href="#">Order</a>
+                    <a id="order-nav" class="nav-link" href="#">Order</a>
                 </li>
                 <li class="nav-item">
-                    <a id="Order_history_nav" class="nav-link" href="#">Order History</a>
+                    <a id="order-history-nav" class="nav-link" href="#">Order History</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
-<!-- Dashboard Cards -->
 
-<div id="Dashboard_section" class="container mt-4 ">
-    <h1 class="text-center mb-3">Dashboard</h1>
-    <br>
-    <br>
-
-    <div class="row">
-        <!-- Customer Count Card -->
-        <div class="col-md-4">
-            <div class="card text-white bg-primary mb-3 text-center">
-                <div class="card-body">
-                    <h5 class="card-title">Customers</h5>
-                    <img src="image/customer.png" alt="Customer Icon" class="img-fluid mb-2" >
-                    <p class="card-text fs-2" id="customerCount">100</p>
+<!-- Main Content Sections -->
+<div id="main-content">
+    <div id="dashboard-section" class="container mt-4 ">
+        <h1 class="text-center mb-3">Dashboard</h1>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <!-- Customer Count Card -->
+            <div class="col-md-4">
+                <div class="card text-white bg-primary mb-3 text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Customers</h5>
+                        <img src="image/customer.png" alt="Customer Icon" class="img-fluid mb-2" >
+                        <p class="card-text fs-2" id="customerCount">100</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Item Count Card -->
-        <div class="col-md-4">
-            <div class="card text-white bg-success mb-3 text-center">
-                <div class="card-body">
-                    <h5 class="card-title">Items</h5>
-                    <img src="image/item.png" alt="Item Icon" class="img-fluid mb-2" >
-                    <p class="card-text fs-2" id="itemCount">50</p>
+            <!-- Item Count Card -->
+            <div class="col-md-4">
+                <div class="card text-white bg-success mb-3 text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Items</h5>
+                        <img src="image/item.png" alt="Item Icon" class="img-fluid mb-2" >
+                        <p class="card-text fs-2" id="itemCount">50</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Order Count Card -->
-        <div class="col-md-4">
-            <div class="card text-white bg-warning mb-3 text-center">
-                <div class="card-body">
-                    <h5 class="card-title">Orders</h5>
-                    <img src="image/order.png" alt="Order Icon" class="img-fluid mb-2">
-                    <p class="card-text fs-2" id="orderCount">150</p>
+            <!-- Order Count Card -->
+            <div class="col-md-4">
+                <div class="card text-white bg-warning mb-3 text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Orders</h5>
+                        <img src="image/order.png" alt="Order Icon" class="img-fluid mb-2">
+                        <p class="card-text fs-2" id="orderCount">150</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Customer -->
-<div id="customer-section" class="container mt-5">
-    <h1>Customer Form</h1>
-    <!-- Customer -->
-        <!-- Customer Form -->
-        <div class="card my-4">
-            <div class="card-header bg-info-subtle">Enter Customer Details</div>
-            <div class="card-body">
-                <form id="customerForm">
-                    <div class="row mb-3">
-                        <div class="col">
-                            <label for="firstName" class="form-label">First Name</label>
-                            <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
-                        </div>
-                        <div class="col">
-                            <label for="lastName" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col">
-                            <label for="mobile" class="form-label">Mobile Number</label>
-                            <input type="text" class="form-control" id="mobile" placeholder="Mobile Number" required>
-                        </div>
-                        <div class="col">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Email" required>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="address" class="form-label">Address</label>
-                        <textarea class="form-control" id="address" rows="3" placeholder="Enter Address" required></textarea>
-                    </div>
 
-                    <div class="d-flex justify-content-center">
-                        <button id="customer_add_button" type="button" class="btn btn-outline-primary mx-2">SAVE</button>
-                        <button id="customer_delete_button" type="button" class="btn btn-outline-secondary mx-2">DELETE</button>
-                        <button id="customer_update_button" type="button" class="btn btn-outline-primary mx-2">UPDATE</button>
 
-                    </div>
-
-                </form>
+<!-- Customer Content Sections -->
+<section id="customer-section" style="display:none;">
+    <div class="container mt-4">
+        <div class="row mb-3 align-items-center">
+            <div class="col">
+                <h1 class="mt-2 mb-3 text-center">CUSTOMER FORM</h1>
             </div>
         </div>
 
-        <!-- Customer Table -->
-        <h3 class="mt-6 d-flex justify-content-center">Customer List</h3>
-        <div class="table-responsive">
-            <table class="table table-hover table-striped table-bordered text-center align-middle mt-3">
-                <thead class="table-dark">
-                <tr>
-                    <th>Customer Id</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Mobile Number</th>
-                    <th>Email</th>
-                    <th>Address</th>
-                </tr>
-                </thead>
-                <tbody id="customerTableBody">
-                <!-- Customer rows will be added here -->
-                </tbody>
-            </table>
+        <div class="row">
+            <!-- Left Column: Customer Form -->
+            <div class="col-lg-6 col-md-12">
+                <div class="card my-4">
+                    <div class="card-header bg-info-subtle " >Enter Customer Details</div>
+                    <div class="card-body">
+                        <form id="customerForm">
+                            <div class="mb-3">
+                                <label for="customerId" class="form-label">Customer ID</label>
+                                <input type="text" class="form-control" id="customerId" placeholder="C_0001" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="customerName" class="form-label">Customer Name</label>
+                                <input type="text" class="form-control" id="customerName" placeholder="Ishani" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="customerAddress" class="form-label">Customer Address </label>
+                                <input type="text" class="form-control" id="customerAddress" placeholder="Matara" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="customerSalary" class="form-label">Customer Salary</label>
+                                <input type="number" class="form-control" id="customerSalary" placeholder="25000.00" required>
+                            </div>
+
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-6 col-sm-3 mb-2">
+                                    <button type="button" class="btn btn-outline-primary w-100" id="customer_add_btn">SAVE</button>
+                                </div>
+                                <div class="col-6 col-sm-3 mb-2">
+                                    <button type="button" class="btn btn-outline-secondary w-100" id="customer_update_btn">UPDATE</button>
+                                </div>
+                                <div class="col-6 col-sm-3 mb-2">
+                                    <button type="button" class="btn btn-outline-info w-100" id="customer_delete_btn">DELETE</button>
+                                </div>
+                                <div class="col-6 col-sm-3 mb-2">
+                                    <button type="button" class="btn btn-outline-success w-100" id="customer_clear_btn">CLEAR</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-6 col-md-12">
+                <div class="card my-4">
+                    <table class="table table-bordered mt-3 p-3"> <!-- Added p-3 for padding inside the table -->
+                        <thead class="table">
+                        <tr>
+                            <th>Customer ID</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Salary</th>
+                        </tr>
+                        </thead>
+                        <tbody id="customerTableBody">
+                        <!-- Dynamic customer data will be injected here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
+</section>
 
-<!-- Item -->
-<div id="item-section" class="container mt-5">
-    <h1>Item Form</h1>
 
-    <!-- Item Form -->
-    <div class="card my-4">
-        <div class="card-header bg-info-subtle">Enter Item Details</div>
-        <div class="card-body">
-            <form id="itemForm">
-                <div class="row mb-3">
-                    <div class="col">
-                        <label for="itemName" class="form-label">Item Name</label>
-                        <input type="text" class="form-control" id="itemName" placeholder="Item Name" required>
-                    </div>
+<!-- Item Content Section -->
+<section id="item-section" style="display:none;">
+    <div class="container mt-4">
+        <div class="row mb-3 align-items-center">
+            <div class="col">
+                <h1 class="mt-2 mb-3 text-center">ITEM FORM</h1>
+            </div>
+        </div>
 
-                    <div class="col">
-                        <label for="qty" class="form-label">Quantity</label>
-                        <input type="number" class="form-control" id="qty" placeholder="Quantity" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="itemDescription" class="form-label">Item Description</label>
-                        <textarea class="form-control" id="itemDescription" rows="3" placeholder="Enter Item Description" required></textarea>
+        <div class="row">
+            <!-- Left Column: Customer Form -->
+            <div class="col-lg-6 col-md-12">
+                <div class="card my-4">
+                    <div class="card-header bg-info-subtle " >Enter Item Details</div>
+                    <div class="card-body">
+                        <form id="itemForm">
+                            <div class="mb-3">
+                                <label for="saveItemCodeField" class="form-label">Item Code</label>
+                                <input type="text" class="form-control" id="saveItemCodeField">
+                            </div>
+                            <div class="mb-3">
+                                <label for="saveItemNameField" class="form-label">Item Name</label>
+                                <input type="text" class="form-control" id="saveItemNameField">
+                            </div>
+                            <div class="mb-3">
+                                <label for="saveItemDescriptionField" class="form-label">Item Description</label>
+                                <input type="text" class="form-control" id="saveItemDescriptionField">
+                            </div>
+                            <div class="mb-3">
+                                <label for="saveItemPriceField" class="form-label">Price</label>
+                                <input type="text" class="form-control" id="saveItemPriceField">
+                            </div>
+                            <div class="mb-3">
+                                <label for="saveItemQtyField" class="form-label">Quantity</label>
+                                <input type="text" class="form-control" id="saveItemQtyField">
+                            </div>
+
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-6 col-sm-3 mb-2">
+                                    <button type="button" class="btn btn-outline-primary w-100" id="item_add_btn">SAVE</button>
+                                </div>
+                                <div class="col-6 col-sm-3 mb-2">
+                                    <button type="button" class="btn btn-outline-secondary w-100" id="item_update_btn">UPDATE</button>
+                                </div>
+                                <div class="col-6 col-sm-3 mb-2">
+                                    <button type="button" class="btn btn-outline-info w-100" id="item_delete_btn">DELETE</button>
+                                </div>
+                                <div class="col-6 col-sm-3 mb-2">
+                                    <button type="button" class="btn btn-outline-success w-100" id="item_clear_btn">CLEAR</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
-                <div class="mb-3">
-                    <label for="price" class="form-label">Price</label>
-                    <input type="number" class="form-control" id="price" placeholder="Enter Price" required>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="card my-4">
+                    <table class="table table-bordered mt-3 p-3">
+                        <thead class="table">
+                        <tr class="table-info">
+                            <th scope="col">Item Code</th>
+                            <th scope="col">Item Name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Qty</th>
+                        </tr>
+                        </thead>
+                        <tbody id="item_searchTableBody"></tbody>
+                    </table>
                 </div>
-                <div class="d-flex justify-content-center">
-                    <button id="item_add_button" type="button" class="btn btn-outline-primary mx-2">SAVE</button>
-                    <button id="item_delete_button" type="button" class="btn btn-outline-secondary mx-2">DELETE</button>
-                    <button id="item_update_button"  type="button" class="btn btn-outline-primary mx-2">UPDATE</button>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
-
-   <!--Item Table-->
-    <h3 class="mt-5 d-flex justify-content-center">Item List</h3>
-
-    <div class="table-responsive">
-        <table class="table table-hover table-striped table-bordered text-center align-middle mt-3">
-            <thead class="table-dark">
-            <tr>
-                <th>Item Id</th>
-                <th>Item Name</th>
-                <th>Description</th>
-                <th>Quantity</th>
-                <th>Price</th>
-            </tr>
-            </thead>
-            <tbody id="itemTableBody">
-            <!-- Customer rows will be added here -->
-            </tbody>
-        </table>
-    </div>
-</div>
+</section>
 
 
-<section id="Order-section">
+<!--order-->
+<section id="order-section">
 
 
     <div class="container my-4">
@@ -212,7 +246,7 @@
             <!-- Invoice Details -->
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <div class="card-header bg-info-subtle">
+                    <div class="card-header bg-info-subtle ">
                         Invoice Details
                     </div>
                     <div class="card-body">
@@ -225,7 +259,7 @@
                             <input type="date" class="form-control" id="date" value="">
                         </div>
                         <div class="mb-3">
-                            <label for="Customer_Id" class="form-label">Customer</label>
+                            <label for="CustomerId" class="form-label">Customer</label>
                             <div class="input-group flex-grow-1">
                                 <!-- Use flex-grow to take available space -->
                                 <input id="customerSearchId" type="text" class="form-control"
@@ -233,25 +267,25 @@
                                        aria-label="Recipient's username" aria-describedby="basic-addon2">
                                 <span class="input-group-text search-span" id="basic-addon4">Search</span>
                             </div>
-                            <button id="customerSearch" type="button" class="btn btn-primary mt-3 ">search</button>
-                            <button type="button" class="btn btn btn-warning mt-3  " id="btn_clear_order_customer">Clear</button>
+                            <button id="customerSearch" type="button" class="btn btn-outline-secondary mt-3">search</button>
+                            <button type="button" class="btn btn-outline-success mt-3  " id="btn_clear_order_customer">Clear</button>
 
                         </div>
 
                         <div class="mb-3">
-                            <label for="customer_ID" class="form-label">Customer ID</label>
+                            <label for="customerID" class="form-label">Customer ID</label>
                             <input type="text" class="form-control" id="customer_ID" value="" readonly>
                         </div>
                         <div class="mb-3">
-                            <label for="customer_Name" class="form-label">Name</label>
+                            <label for="customerName" class="form-label">Name</label>
                             <input type="text" class="form-control" id="customer_Name" value="" readonly>
                         </div>
                         <div class="mb-3">
-                            <label for="Mobile" class="form-label">phoneNumber</label>
-                            <input type="text" class="form-control" id="customer_PhoneNumber" value="" readonly>
+                            <label for="customerSalary" class="form-label">Salary</label>
+                            <input type="text" class="form-control" id="customer_Salary" value="" readonly>
                         </div>
                         <div class="mb-3">
-                            <label for="customer_Address" class="form-label">Address</label>
+                            <label for="customerAddress" class="form-label">Address</label>
                             <input type="text" class="form-control" id="customer_Address" value="" readonly>
                         </div>
                     </div>
@@ -261,11 +295,11 @@
             <!-- Item Selection -->
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <div class="card-header bg-info-subtle">
+                    <div class="card-header bg-info-subtle ">
                         Item Select
                     </div>
                     <div class="card-body">
-                        <label for="Customer_Id" class="form-label">Item code</label>
+                        <label for="CustomerId" class="form-label">Item code</label>
                         <div class="input-group flex-grow-1">
                             <!-- Use flex-grow to take available space -->
                             <input id="itemSearchId" type="text" class="form-control"
@@ -273,8 +307,8 @@
                                    aria-label="Recipient's username" aria-describedby="basic-addon2">
                             <span class="input-group-text search-span" >Search</span>
                         </div>
-                        <button id="itemSearch" type="button" class="btn btn-primary mt-3 ">search</button>
-                        <button type="button" class="btn btn btn-warning mt-3  " id="btn_clear_order_item">Clear</button>
+                        <button id="itemSearch" type="button" class="btn btn-outline-secondary mt-3 ">search</button>
+                        <button type="button" class="btn btn-outline-warning mt-3  " id="btn_clear_order_item">Clear</button>
 
 
                         <div class="mb-3">
@@ -283,11 +317,11 @@
                         </div>
                         <div class="mb-3">
                             <label for="itemName" class="form-label">Item Name</label>
-                            <input type="text" class="form-control" id="item_Name" value="" readonly>
+                            <input type="text" class="form-control" id="itemName" value="" readonly>
                         </div>
                         <div class="mb-3">
                             <label for="itemDescription" class="form-label">Item Description</label>
-                            <input type="text" class="form-control" id="item_Description" value="" readonly>
+                            <input type="text" class="form-control" id="itemDescription" value="" readonly>
                         </div>
                         <div class="mb-3">
                             <label for="itemPrice" class="form-label">Price</label>
@@ -301,8 +335,8 @@
                             <label for="orderQty" class="form-label">Order Quantity</label>
                             <input type="number" class="form-control" id="orderQty" value="">
                         </div>
-                        <button id="add_btn" class="btn btn-info">Add Item</button>
-                        <button id="remove_cart" type="button" class="btn btn-danger">Remove cart</button>
+                        <button id="add_btn" class="btn btn-outline-primary">Add Item</button>
+                        <button id="remove_cart" type="button" class="btn btn-outline-danger">Remove cart</button>
                     </div>
                 </div>
             </div>
@@ -310,11 +344,11 @@
             <!-- Total Section -->
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <div class="card-header bg-info-subtle">
+                    <div class="card-header bg-info-subtle ">
                         Total Price
                     </div>
                     <div class="card-body total-section">
-                        <h2 class="total" id="totalDisplay">Total: 00.00</h2>
+                        <h2 class="total" id="totalDisplay" style="color: red">Total: 00.00</h2>
 
                         <div class="mb-3">
                             <label for="discount_range" class="form-label">discount Range%</label>
@@ -339,7 +373,7 @@
                         <button id="btn_purches" class="btn btn-success">Purchase</button>
                         <div class="mb-3">
                             <label for="balance" class="form-label">Balance</label>
-                            <input type="text" class="form-control" id="balance" value="" readonly>
+                            <input type="text" class="form-control" id="balance" style="color: darkslateblue" value="" readonly>
                         </div>
 
                     </div>
@@ -347,7 +381,7 @@
             </div>
         </div>
         <!-- Order Details Table -->
-        <div class="row mt-4 ">
+        <div class="row mt-4">
             <table class="table table-bordered">
                 <thead class="table-success">
                 <tr>
@@ -370,15 +404,16 @@
 </section>
 
 
-<section id="orderDetails_section">
+<section id="OrderHistoryPage">
     <div class="container">
-        <h1 class="mt-2 mb-5 text-center" >ALL Orders</h1>
+        <br>
+        <br>
+        <h1 class="mt-2 mb-5 text-center" >ORDER HISTORY</h1>
         <div class="row justify-content-center align-items-center ">
 
             <div class="col-12 col-lg-12 mb-1  pt-5">
 
-                <div class="card p-3 bg-opacity-50    ">
-
+                <div class="card p-3 bg-opacity-50">
                     <div class="table-responsive">
                         <table class="table table-bordered table-custom">
                             <thead>
@@ -394,7 +429,6 @@
                                 <th scope="col">discount</th>
                                 <th scope="col">final Amount</th>
 
-
                             </tr>
                             </thead>
                             <tbody id="OrderHistoryTable">
@@ -404,105 +438,60 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
 
-<!--<main id="orderDetails_section">
-<section>
-    <div id="form">
-        <div class="text-center gradient-text">
-            <h3>Order Details Form</h3>
-        </div>
-        <div class="col table1 table-responsive">
-            <table class="table table-hover table-striped table-bordered text-center align-middle mt-3" id="item-details-table">
-                <thead class="table-dark">
-                <tr>
-                    <th scope="col">Order Id</th>
-                    <th scope="col">Order Date</th>
-                    <th scope="col">Customer Id</th>
-                    <th scope="col">Total</th>
-                    <th scope="col">Discount</th>
-                    <th scope="col">Sub Total</th>
-                    <th scope="col">Cash</th>
-                    <th scope="col">Balance</th>
-                </tr>
-                </thead>
-                <tbody id="Order_detailTableBody">
-                </tbody>
-            </table>
-        </div>
-    </div>
-</section>-->
-</main>
+
+
+<!--jQuery-->
+<script src="lib/jquery-3.7.1.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-    let Dashboard = document.getElementById("Dashboard");
-    let Customer = document.getElementById("Customer_nav");
-    let Item = document.getElementById("Item_nav");
-    let Order = document.getElementById("Order_nav");
-   let Order_history = document.getElementById("Order_history_nav");
+    $(document).ready(function() {
+// Initially hide all sections
+        $('#customer-section, #item-section, #order-section, #OrderHistoryPage').hide();
 
-    let Dashboard_section = document.getElementById("Dashboard_section");
-    let customer_section = document.getElementById("customer-section");
-    let item_section = document.getElementById("item-section");
-    let order_section = document.getElementById("Order-section");
-   let order_history_section = document.getElementById("orderDetails_section");
+// Dashboard navigation
+        $('#dashboard-nav').click(function() {
+            $('#dashboard-section').show();
+            $('#customer-section, #item-section, #order-section, #OrderHistoryPage').hide();
+        });
 
+// Customer navigation
+        $('#customer-nav').click(function() {
+            $('#customer-section').show();
+            $('#item-section, #order-section, #dashboard-section, #OrderHistoryPage').hide();
+        });
 
-    customer_section.style.display = "none";
-    item_section.style.display = "none";
-    order_section.style.display = "none";
-    order_history_section.style.display = "none";
+// Item navigation
+        $('#item-nav').click(function() {
+            $('#item-section').show();
+            $('#dashboard-section, #customer-section, #order-section, #OrderHistoryPage').hide();
+        });
 
-    Dashboard.addEventListener('click', function () {
-        Dashboard_section.style.display = "block"
-        customer_section.style.display = "none";
-        item_section.style.display = "none";
-        order_section.style.display = "none";
-        order_history_section.style.display = "none";
+// Order navigation
+        $('#order-nav').click(function() {
+            $('#order-section').show();
+            $('#OrderHistoryPage, #customer-section, #item-section, #dashboard-section').hide();
+        });
 
+// Order history navigation
+        $('#order-history-nav').click(function() {
+            $('#OrderHistoryPage').show();
+            $('#customer-section, #item-section, #dashboard-section, #order-section').hide();
+        });
     });
 
-    Customer.addEventListener('click', function () {
-        Dashboard_section.style.display = "none"
-        customer_section.style.display = "block";
-        item_section.style.display = "none";
-        order_section.style.display = "none";
-       order_history_section.style.display = "none";
-    });
-
-    Item.addEventListener('click', function () {
-        Dashboard_section.style.display = "none"
-        customer_section.style.display = "none";
-        item_section.style.display = "block";
-        order_section.style.display = "none";
-       order_history_section.style.display = "none";
-    });
-
-    Order.addEventListener('click', function () {
-        Dashboard_section.style.display = "none"
-        customer_section.style.display = "none";
-        item_section.style.display = "none";
-        order_section.style.display = "block";
-        order_history_section.style.display = "none";
-    });
-
-    Order_history.addEventListener('click', function () {
-        Dashboard_section.style.display = "none"
-        customer_section.style.display = "none";
-        item_section.style.display = "none";
-        order_section.style.display = "none";
-        order_history_section.style.display = "block";
-    })
 
 </script>
-<script src="assest/lib/jquery-3.7.1.min.js"></script>
-<script type="module" src="Controller/customerController.js"></script>
-<script type="module" src="Controller/itemController.js"></script>
-<script type="module" src="Controller/OrderController.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="module" src="controller/customer_controller.js"></script>
+<script type="module" src="controller/item_controller.js"></script>
+<script type="module" src="controller/order_controller.js"></script>
 </body>
 </html>
