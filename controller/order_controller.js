@@ -1,6 +1,8 @@
-import { CustomerDB, ItemDB ,cart,orderHistory} from "../db/database.js";
-import orderModel   from "../models/order.js";
-import orderDetailsModel from "../models/orderDetails";
+import { customer_array, item_array ,cart,orderHistory} from "../db/database.js";
+import Order_Model from "../models/Order_Model.js";
+import OrderHistory_Model from "../models/OrderHistory_Model.js";
+
+
 
 let customer_search_id;
 let item_search_id;
@@ -9,12 +11,12 @@ $("#customerSearch").click(function () {
     customer_search_id = $("#customerSearchId").val().trim();
     let customerFound = false;
 
-    for (let customer of CustomerDB) {
+    for (let customer of customer_array) {
         if (customer_search_id === customer.cus_id) {
             $("#customer_ID").val(customer.cus_id);
             $("#customer_Name").val(customer.cus_name);
             $("#customer_Address").val(customer.cus_address);
-            $("#customer_Salary").val(customer.c);
+            $("#customer_Salary").val(customer.cus_salary);
             customerFound = true;
             break;
         }
@@ -86,11 +88,6 @@ const cleanFormItem = () => {
 };
 
 
-
-
-
-
-
 // Calculate discount and amount
 let total = 0;
 let discount_range = 5; // Default discount rate
@@ -131,7 +128,7 @@ $("#add_btn").click(function () {
     // Create order object and add to cart
     let order_id = $('#orderID').val();
     let totalItem = itemPrice * orderQty;
-    let order = new Order_modul(cusID, cusName, order_id, date, itemCode, itemName, itemPrice, itemQtyOnHand, orderQty, totalItem);
+    let order = new Order_Model(cusID, cusName, order_id, date, itemCode, itemName, itemPrice, itemQtyOnHand, orderQty, totalItem);
     cart.push(order);
 
     // Update ItemArray
@@ -290,7 +287,7 @@ $("#btn_purches").click(function () {
     }).then((result) => {
         if (result.isConfirmed) {
             // Create a new order history entry
-            let orderHistoryEntry = new OrderHistory_modul(
+            let orderHistoryEntry = new OrderHistory_Model(
                 order_id, date, customer_id, item_name, price, orderQty, sub_total, discount_range, discount, amount
             );
 
@@ -335,13 +332,3 @@ const loadOrderHistoryTable = () => {
         $('#OrderHistoryTable').append(data);
     });
 };
-//
-// const loadOrderHistoryTable=()=>{
-// $('#OrderHistoryTable').empty()
-//     orderHistory.map((item,index)=>{
-//         alert(item.itemName)
-//         let data=`<tr><td>${item.order_id}</td><td>${item.date}</td><td>${item.customerId}</td><td>${item.itemName}</td><td>${item
-//             .itemPrice}</td><td>${item.order_qty}</td><td>${item.sub_total}</td><td>${item.discount_range}</td><td>${item.discount}</td><td>${item.final_total}</td></tr>`
-//         $('#OrderHistoryTable').append(data)
-//     })
-// }
